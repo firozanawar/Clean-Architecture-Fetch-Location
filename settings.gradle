@@ -1,0 +1,5 @@
+rootProject.name='CleanArchitectureFetchLocation'
+include ':app'
+include ':usecases'
+include ':domain'
+include ':data'
