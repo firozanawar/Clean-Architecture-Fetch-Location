@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), MainPresenter.View {
 
     private val presenter: MainPresenter
+    private val locationsAdapter = LocationsAdapter()
 
     init {
 
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        recycler.adapter = locationsAdapter
+
         newLocationBtn.setOnClickListener { presenter.newLocationClicked() }
 
         presenter.onCreate()
@@ -38,5 +41,6 @@ class MainActivity : AppCompatActivity(), MainPresenter.View {
 
     override fun renderLocations(locations: List<Location>) {
         Log.d("FIROZ", "List is: " + locations);
+        locationsAdapter.items = locations
     }
 }
